@@ -1,3 +1,5 @@
+# This repo has the answer to Clojure Koans
+
 # Clojure Koans
 
 The Clojure Koans are a fun and easy way to get started with Clojure - no
