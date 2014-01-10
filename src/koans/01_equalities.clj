@@ -7,7 +7,6 @@
 
   "You can test equality of many things"
   (= (+ 3 4) 7 (+ 2 5))
-
   "Some things may appear different, but be the same"
   (= true (= 2 2/1))
 
@@ -24,7 +23,7 @@
   (= false (= "foo" :foo 'foo))
 
   "Make a keyword with your keyboard"
-  (= :foo (keyword "foo"))
+  (= :foo (keyword 'foo))
 
   "Symbolism is all around us"
   (= 'foo (symbol "foo"))

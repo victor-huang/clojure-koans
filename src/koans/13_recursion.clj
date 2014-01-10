@@ -1,20 +1,50 @@
 (defn is-even? [n]
   (if (= n 0)
-    __
-    (___ (is-even? (dec n)))))
+    true
+    (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
          acc true]
     (if (= n 0)
-      __
+      acc
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  __)
+  (if (<= (count coll) 1)
+    coll
+    (do
+      ;;(println "ori:"  coll)
+      ;;(println "REST called" (rest coll))
+      ;;(println "else block ----- ")
+      (let [ recur-result (recursive-reverse (rest coll)) ]
+        "(cons (recursive-reverse (rest coll)) (first coll))"
+        ;;(println recur-result)
+        "(print (conj '(100) 4))"
+        ;;(println (concat recur-result [(first coll)]))
+        ;;(println "---------------")
+        (concat recur-result [(first coll)])
+      )
+    )
+  
+    ))
 
+(comment
 (defn factorial [n]
-  __)
+  (if (<= n 1)
+    1
+    (* n (factorial (dec n))) 
+    ))
+)
+
+;123
+(defn factorial [n]
+  (loop [ num n
+          acc 1]
+    (if (= 0 num)
+      acc
+      (recur (dec num) (* acc num)))
+  ))
 
 (meditations
   "Recursion ends with a base case"
@@ -27,7 +57,7 @@
   (= false (is-even-bigint? 100003N))
 
   "Reversing directions is easy when you have not gone far"
-  (= '(1) (recursive-reverse [1]))
+  (= '(1) (recursive-reverse '(1)))
 
   "Yet it becomes more difficult the more steps you take"
   (= '(5 4 3 2 1) (recursive-reverse [1 2 3 4 5]))
